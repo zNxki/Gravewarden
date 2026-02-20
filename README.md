@@ -35,4 +35,4 @@ GraveWarden is a modern, zero-command death management solution for Paper/Spigot
 ## 🤝 Support
 Found a bug or have a suggestion? Feel free to open an issue on the GitHub repository.
 
-*Developed with ❤️ by zNxki_
+*Developed with ❤️ by zNxki_*
