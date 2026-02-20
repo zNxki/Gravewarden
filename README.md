@@ -11,7 +11,7 @@ GraveWarden is a modern, zero-command death management solution for Paper/Spigot
 * **🛡️ Overflow Protection:** If your inventory is full when opening a grave, excess items are safely dropped at your feet. Zero item loss guaranteed.
 * **👻 Standalone Holograms:** Aesthetic player-head graves with floating text. No external APIs (like DecentHolograms) required—it works perfectly out of the box.
 * **🌌 Soul Particle Effects:** A striking visual "Soul" burst triggers when you reclaim your items, providing high-quality feedback.
-* **🚀 Native 1.20.5+ Support:** Fully optimized using modern Data Components and Persistent Data Containers (PDC) for maximum stability on the latest Minecraft versions.
+* **🚀 Native 1.20.6+ Support:** Fully optimized using modern Data Components and Persistent Data Containers (PDC) for maximum stability on the latest Minecraft versions.
 
 ---
 
