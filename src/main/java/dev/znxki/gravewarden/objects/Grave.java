@@ -14,5 +14,6 @@ public class Grave {
     private final String graveId;
     private final Player player;
     private final Location location;
+    private final int experience;
     private final List<ItemStack> items;
 }

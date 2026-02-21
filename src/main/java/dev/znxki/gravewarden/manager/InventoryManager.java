@@ -7,16 +7,26 @@ import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Map;
 
 public class InventoryManager {
-    public static void restoreInventory(Player player, Grave grave) {
+    public static void restoreInventory(@NotNull Player player, @NotNull Grave grave) {
         List<ItemStack> savedItems = grave.getItems();
         PlayerInventory playerInventory = player.getInventory();
         World world = player.getWorld();
         Location dropLocation = player.getLocation();
+
+        int savedExp = grave.getExperience();
+        if (savedExp > 0) {
+            player.setTotalExperience(0);
+            player.setLevel(0);
+            player.setExp(0);
+
+            player.giveExp(savedExp);
+        }
 
         for (int i = 0; i < savedItems.size(); i++) {
             ItemStack itemToRestore = savedItems.get(i);

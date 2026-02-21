@@ -4,6 +4,7 @@ import dev.znxki.gravewarden.Gravewarden;
 import dev.znxki.gravewarden.manager.GraveManager;
 import dev.znxki.gravewarden.objects.Grave;
 import dev.znxki.gravewarden.utils.ColorUtils;
+import dev.znxki.gravewarden.utils.ExperienceUtil;
 import dev.znxki.gravewarden.utils.HologramUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -31,6 +32,9 @@ public class DeathListener implements Listener {
         List<ItemStack> items = Arrays.asList(contents.clone());
         event.getDrops().clear();
 
+        int totalExperience = ExperienceUtil.getTotalExperience(event.getEntity());
+        event.setDroppedExp(0);
+
         NamespacedKey graveIdKey = new NamespacedKey(Gravewarden.getInstance(), "grave_id");
         String uniqueGraveId = event.getEntity().getUniqueId() + "_" + System.currentTimeMillis();
 
@@ -43,7 +47,7 @@ public class DeathListener implements Listener {
             skull.update();
         }
 
-        Grave grave = new Grave(uniqueGraveId, event.getEntity(), deathLocation, items);
+        Grave grave = new Grave(uniqueGraveId, event.getEntity(), deathLocation, totalExperience, items);
         GraveManager.addGrave(event.getEntity().getUniqueId(), grave);
 
         event.getEntity().sendMessage(ColorUtils.colorize(
