@@ -3,6 +3,7 @@ package dev.znxki.gravewarden.manager;
 import dev.znxki.gravewarden.objects.Grave;
 import dev.znxki.gravewarden.storage.LocalStorage;
 import dev.znxki.gravewarden.utils.HologramUtils;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -36,5 +37,12 @@ public class GraveManager {
 
         if (!playerGraves.isEmpty()) return;
         LocalStorage.getGraves().remove(player.getUniqueId());
+    }
+
+    public static @Nullable Location getLatestGraveLocation(UUID uuid) {
+        List<Grave> graves = LocalStorage.getGraves().get(uuid);
+        if (graves == null || graves.isEmpty()) return null;
+
+        return graves.getLast().getLocation();
     }
 }

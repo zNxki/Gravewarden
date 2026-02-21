@@ -3,6 +3,7 @@ package dev.znxki.gravewarden.events;
 import dev.znxki.gravewarden.Gravewarden;
 import dev.znxki.gravewarden.manager.GraveManager;
 import dev.znxki.gravewarden.manager.InventoryManager;
+import dev.znxki.gravewarden.manager.SoulCompassManager;
 import dev.znxki.gravewarden.objects.Grave;
 import dev.znxki.gravewarden.utils.ColorUtils;
 import org.bukkit.Location;
@@ -59,6 +60,7 @@ public class GraveInteractListener implements Listener {
             player.getWorld().spawnParticle(Particle.WITCH, loc.clone().add(x, 0, z), 1, 0, 0.1, 0, 0);
         }
 
+        SoulCompassManager.removeSoulCompass(player);
         InventoryManager.restoreInventory(player, grave);
 
         block.setType(Material.AIR);

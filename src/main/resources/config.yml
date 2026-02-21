@@ -5,6 +5,21 @@ messages:
   grave-take: "&6&lGraveWarden &8» &aInventory restored! Your belongings have been returned."
   not-your-grave: "&c&l! &8» &7This grave does not belong to you. It marks the rest of &e{player}&7."
 
+  soul-compass-pointing: "&#7df9ff&l» &7Your &fSoul Compass &7is pointing to your grave."
+
+items:
+  soul-compass: # Navigate on your grave when you respawn
+    enabled: true
+
+    settings:
+      name: "&#7df9ff&lSoul Compass"
+      model: 0
+      lore:
+        - "&7It points toward your soul at:"
+        - "&b{x} {y} {z}"
+        - ""
+        - "&8&oWill be consumed upon retrieval."
+
 hologram:
   offset-y: 1.2
   line-spacing: 0.25
