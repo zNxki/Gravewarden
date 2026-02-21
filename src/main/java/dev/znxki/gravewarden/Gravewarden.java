@@ -1,8 +1,10 @@
 package dev.znxki.gravewarden;
 
+import dev.znxki.gravewarden.config.ConfigUpdater;
 import dev.znxki.gravewarden.events.DeathListener;
 import dev.znxki.gravewarden.events.GraveInteractListener;
 import dev.znxki.gravewarden.manager.GraveManager;
+import dev.znxki.gravewarden.request.UpdateChecker;
 import dev.znxki.gravewarden.storage.LocalStorage;
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -16,11 +18,14 @@ public final class Gravewarden extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-
         saveDefaultConfig();
+        ConfigUpdater.updateConfig();
+
         Bukkit.getPluginManager().registerEvents(new DeathListener(), this);
         Bukkit.getPluginManager().registerEvents(new GraveInteractListener(), this);
 
+        if (getConfig().getBoolean("update-checker", true))
+            new UpdateChecker("CvD7zFzg", getDescription().getVersion()).check();
     }
 
     @Override

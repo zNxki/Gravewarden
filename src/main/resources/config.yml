@@ -1,3 +1,4 @@
+update-checker: true
 
 messages:
   death-message: "&6&lGraveWarden &8» &7Your soul has been preserved at &e{x}, {y}, {z}&7."
