@@ -4,3 +4,31 @@ main: dev.znxki.gravewarden.Gravewarden
 api-version: '1.20'
 authors: [ zNxki_ ]
 description: Gravewarden protects player items by creating a gravestone on death.
+commands:
+  gravewarden:
+    description: Main command for Gravewarden.
+    aliases: [ grave ]
+
+permissions:
+  grave.*:
+    children:
+      - grave.admin
+      - grave.list
+      - grave.list.others
+      - grave.remove
+      - grave.remove.all
+      - grave.teleport
+
+  grave.admin: { }
+
+  grave.teleport: { }
+
+  grave.remove: { }
+  grave.remove.all:
+    children:
+      - grave.remove
+
+  grave.list: { }
+  grave.list.others:
+    children:
+      - grave.list

@@ -6,6 +6,7 @@ import dev.znxki.gravewarden.Gravewarden;
 import lombok.AllArgsConstructor;
 
 import java.io.InputStreamReader;
+import java.util.concurrent.CompletableFuture;
 import java.util.logging.Level;
 
 import org.bukkit.Bukkit;
@@ -19,6 +20,36 @@ import java.net.URL;
 public class UpdateChecker {
     private final String projectId;
     private final String currentVersion;
+
+    public CompletableFuture<Boolean> isLatest() {
+        return CompletableFuture.supplyAsync(() -> {
+            try {
+                URL url = new URL("https://api.modrinth.com/v2/project/" + projectId + "/version");
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("GET");
+                connection.setRequestProperty("User-Agent", "Gravewarden-UpdateChecker/1.0");
+
+                if (connection.getResponseCode() != 200)
+                    return false;
+
+                InputStreamReader reader = new InputStreamReader(connection.getInputStream());
+                JsonArray versions = JsonParser.parseReader(reader).getAsJsonArray();
+
+                if (versions.isEmpty())
+                    return false;
+
+                String latestVersion = versions.get(0).getAsJsonObject().get("version_number").getAsString();
+                if (latestVersion.equalsIgnoreCase(currentVersion))
+                    return true;
+
+                return false;
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
 
     public void check() {
         Bukkit.getScheduler().runTaskAsynchronously(Gravewarden.getInstance(), () -> {

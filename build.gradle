@@ -1,10 +1,11 @@
 plugins {
     id 'java'
     id("xyz.jpenilla.run-paper") version "2.3.1"
+    id("io.github.goooler.shadow") version "8.1.8"
 }
 
 group = 'dev.znxki'
-version = '1.2.4'
+version = '1.3'
 
 repositories {
     mavenCentral()
@@ -16,8 +17,10 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT")
-
     compileOnly("org.projectlombok:lombok:1.18.42")
+
+    implementation("dev.triumphteam:triumph-gui:3.1.13")
+
     annotationProcessor("org.projectlombok:lombok:1.18.42")
 }
 
@@ -28,6 +31,10 @@ tasks {
         // Your plugin's jar (or shadowJar if present) will be used automatically.
         minecraftVersion("1.20")
     }
+}
+
+shadowJar {
+    relocate("dev.triumphteam.gui", "dev.znxki.gravewarden.gui")
 }
 
 def targetJavaVersion = 21

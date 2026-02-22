@@ -9,6 +9,54 @@ messages:
   soul-compass-restricted: "&#7df9ff&l» &cYou cannot put the Soul Compass in a container!"
   soul-compass-removed: "&#7df9ff&l» &cThe Soul Compass has been destroyed because you tried to drop it!"
 
+  all-graves-removed: "&eAll restless souls have been purged from the world."
+  player-graves-removed: "&eAll souls belonging to {player} have been laid to rest."
+  player-has-not-grave: "&cNo active graves found for {player}."
+
+  wrong-command-usage: "&cThat's not quite right. Try /grave help."
+  player-not-found: "&cThis player isn't online."
+  no-perms: "&cYou don't have permission to do that."
+
+gui: # graves list gui
+  title: "&8» &cActive Graves"
+
+  items:
+    grave:
+      name: "&eGrave &7#{id}"
+      lore:
+        - ""
+        - "&7Location:"
+        - " &8» &f{world} &7| &f{x} {y} {z}"
+        - "&7Time:"
+        - " &8» &f{time}"
+        - ""
+
+    empty:
+      material: BARRIER
+      name: "&cNo graves found!"
+      lore:
+        - "&7You don't have any"
+        - "&7restless souls yet."
+
+    filler:
+      material: GRAY_STAINED_GLASS_PANE
+      model: 0
+      name: "&r"
+      lore:
+        - ""
+
+    next-page:
+      material: ARROW
+      name: "&aNext Page »"
+      model: 0
+      lore: { }
+
+    previous-page:
+      material: ARROW
+      name: "&c« Previous Page"
+      model: 0
+      lore: { }
+
 items:
   soul-compass: # Navigate on your grave when you respawn
     enabled: true
