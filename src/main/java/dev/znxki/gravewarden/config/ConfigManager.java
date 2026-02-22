@@ -16,6 +16,8 @@ public enum ConfigManager {
     MESSAGES_GRAVE_TAKE("messages.grave-take", "&6&lGraveWarden &8» &aInventory restored! Your belongings have been returned."),
     MESSAGES_NOT_YOUR_GRAVE("messages.not-your-grave", "&c&l! &8» &7This grave does not belong to you. It marks the rest of &e{player}&7."),
     MESSAGES_SOUL_COMPASS_POINTING("messages.soul-compass-pointing", "&#7df9ff&l» &7Your &fSoul Compass &7is pointing to your grave."),
+    MESSAGES_COMPASS_RESTRICTED("messages.soul-compass-restricted", "&cYou cannot put the Soul Compass in a container!"),
+    MESSAGES_COMPASS_REMOVED("messages.soul-compass-removed", "&cThe Soul Compass has been destroyed because you tried to drop it!"),
 
     ITEMS_SOUL_COMPASS_ENABLED("items.soul-compass.enabled", true),
     ITEMS_SOUL_COMPASS_NAME("items.soul-compass.settings.name", "&#7df9ff&lSoul Compass"),
