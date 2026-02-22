@@ -7,6 +7,7 @@ import dev.znxki.gravewarden.events.RespawnListener;
 import dev.znxki.gravewarden.manager.GraveManager;
 import dev.znxki.gravewarden.request.UpdateChecker;
 import dev.znxki.gravewarden.storage.LocalStorage;
+import dev.znxki.gravewarden.utils.ColorUtils;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Entity;
@@ -21,6 +22,8 @@ public final class Gravewarden extends JavaPlugin {
         instance = this;
         saveDefaultConfig();
         ConfigUpdater.updateConfig();
+
+        reloadConfig();
 
         Bukkit.getPluginManager().registerEvents(new DeathListener(), this);
         Bukkit.getPluginManager().registerEvents(new GraveInteractListener(), this);
