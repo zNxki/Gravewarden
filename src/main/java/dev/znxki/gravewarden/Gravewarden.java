@@ -1,13 +1,12 @@
 package dev.znxki.gravewarden;
 
-import dev.znxki.gravewarden.config.ConfigUpdater;
+import dev.znxki.gravewarden.config.updater.ConfigUpdater;
 import dev.znxki.gravewarden.events.DeathListener;
 import dev.znxki.gravewarden.events.GraveInteractListener;
 import dev.znxki.gravewarden.events.RespawnListener;
 import dev.znxki.gravewarden.manager.GraveManager;
 import dev.znxki.gravewarden.request.UpdateChecker;
 import dev.znxki.gravewarden.storage.LocalStorage;
-import dev.znxki.gravewarden.utils.ColorUtils;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Entity;

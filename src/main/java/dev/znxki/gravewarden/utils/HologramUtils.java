@@ -1,8 +1,8 @@
 package dev.znxki.gravewarden.utils;
 
+import dev.znxki.gravewarden.config.ConfigManager;
 import dev.znxki.gravewarden.storage.LocalStorage;
 import org.bukkit.Location;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HologramUtils {
-    public static List<ArmorStand> createHologram(Location location, Player player, LocalTime deathTime, String graveId, FileConfiguration config) {
+    public static List<ArmorStand> createHologram(Location location, Player player, LocalTime deathTime, String graveId) {
         List<ArmorStand> stands = new ArrayList<>();
 
-        List<String> lines = config.getStringList("hologram.lines");
-        double offsetY = config.getDouble("hologram.offset-y");
-        double spacing = config.getDouble("hologram.line-spacing");
+        List<String> lines = ConfigManager.HOLOGRAM_LINES.getFormattedStringList();
+        double offsetY = ConfigManager.HOLOGRAM_OFFSET_Y.getDouble();
+        double spacing = ConfigManager.HOLOGRAM_LINE_SPACING.getDouble();
 
         Location holoLoc = location.clone().add(0, offsetY, 0);
         for (int i = 0; i < lines.size(); i++) {
@@ -26,7 +26,6 @@ public class HologramUtils {
 
             line = line.replace("{player}", player.getName());
             line = line.replace("{time}", deathTime.format(DateTimeFormatter.ofPattern("HH:mm")));
-            line = ColorUtils.colorize(line);
 
             ArmorStand stand = (ArmorStand) location.getWorld().spawnEntity(
                     holoLoc.clone().add(0, spacing * (lines.size() - i), 0),

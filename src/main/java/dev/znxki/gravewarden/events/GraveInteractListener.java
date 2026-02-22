@@ -1,6 +1,7 @@
 package dev.znxki.gravewarden.events;
 
 import dev.znxki.gravewarden.Gravewarden;
+import dev.znxki.gravewarden.config.ConfigManager;
 import dev.znxki.gravewarden.manager.GraveManager;
 import dev.znxki.gravewarden.manager.InventoryManager;
 import dev.znxki.gravewarden.manager.SoulCompassManager;
@@ -69,6 +70,6 @@ public class GraveInteractListener implements Listener {
         player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_CHAIN, 1f, 0.8f);
         player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 0.5f);
 
-        player.sendMessage(ColorUtils.colorize(Gravewarden.getInstance().getConfig().getString("grave-take")));
+        player.sendMessage(ConfigManager.MESSAGES_GRAVE_TAKE.getStringFormatted());
     }
 }

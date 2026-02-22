@@ -1,6 +1,7 @@
 package dev.znxki.gravewarden.events;
 
 import dev.znxki.gravewarden.Gravewarden;
+import dev.znxki.gravewarden.config.ConfigManager;
 import dev.znxki.gravewarden.manager.GraveManager;
 import dev.znxki.gravewarden.objects.Grave;
 import dev.znxki.gravewarden.utils.ColorUtils;
@@ -50,20 +51,17 @@ public class DeathListener implements Listener {
         Grave grave = new Grave(uniqueGraveId, event.getEntity(), deathLocation, totalExperience, items);
         GraveManager.addGrave(event.getEntity().getUniqueId(), grave);
 
-        event.getEntity().sendMessage(ColorUtils.colorize(
-                        Objects.requireNonNull(Gravewarden.getInstance().getConfig().getString("death-message"))
-                                .replace("{x}", String.valueOf(deathLocation.getBlockX()))
-                                .replace("{y}", String.valueOf(deathLocation.getBlockY()))
-                                .replace("{z}", String.valueOf(deathLocation.getBlockZ()))
-                )
+        event.getEntity().sendMessage(ConfigManager.MESSAGES_DEATH.getStringFormatted()
+                .replace("{x}", String.valueOf(deathLocation.getBlockX()))
+                .replace("{y}", String.valueOf(deathLocation.getBlockY()))
+                .replace("{z}", String.valueOf(deathLocation.getBlockZ()))
         );
 
         HologramUtils.createHologram(
                 deathLocation.clone().add(0, 0, 0),
                 event.getEntity(),
                 LocalTime.now().withNano(0),
-                uniqueGraveId,
-                Gravewarden.getInstance().getConfig()
+                uniqueGraveId
         );
     }
 }

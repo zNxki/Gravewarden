@@ -1,4 +1,4 @@
-package dev.znxki.gravewarden.config;
+package dev.znxki.gravewarden.config.updater;
 
 import dev.znxki.gravewarden.Gravewarden;
 import org.bukkit.configuration.file.FileConfiguration;

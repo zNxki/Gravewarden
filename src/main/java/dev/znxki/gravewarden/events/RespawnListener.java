@@ -1,6 +1,7 @@
 package dev.znxki.gravewarden.events;
 
 import dev.znxki.gravewarden.Gravewarden;
+import dev.znxki.gravewarden.config.ConfigManager;
 import dev.znxki.gravewarden.manager.GraveManager;
 import dev.znxki.gravewarden.manager.SoulCompassManager;
 import dev.znxki.gravewarden.utils.ColorUtils;
@@ -25,9 +26,7 @@ public class RespawnListener implements Listener {
 
         Bukkit.getScheduler().runTaskLater(Gravewarden.getInstance(), () -> {
             player.getInventory().addItem(SoulCompassManager.createSoulCompass(graveLoc));
-            player.sendMessage(Objects.requireNonNull(ColorUtils.colorize(
-                    Gravewarden.getInstance().getConfig().getString("messages.soul-compass-pointing")
-            )));
+            player.sendMessage(ConfigManager.MESSAGES_SOUL_COMPASS_POINTING.getStringFormatted());
         }, 20L);
     }
 }

@@ -1,6 +1,7 @@
 package dev.znxki.gravewarden.manager;
 
 import dev.znxki.gravewarden.Gravewarden;
+import dev.znxki.gravewarden.config.ConfigManager;
 import dev.znxki.gravewarden.utils.ColorUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -23,24 +24,19 @@ public class SoulCompassManager {
         ItemStack compass = new ItemStack(Material.COMPASS);
         CompassMeta meta = (CompassMeta) compass.getItemMeta();
 
-        FileConfiguration config = Gravewarden.getInstance().getConfig();
-
         meta.setLodestoneTracked(false);
         meta.setLodestone(deathLocation);
 
         meta.getPersistentDataContainer().set(COMPASS_KEY, PersistentDataType.BYTE, (byte) 1);
 
-        meta.setDisplayName(ColorUtils.colorize(
-                config.getString("items.soul-compass.settings.name"))
-        );
-        meta.setCustomModelData(config.getInt("items.soul-compass.settings.model", 0));
-        meta.setLore(config.getStringList("items.soul-compass.settings.lore")
+        meta.setDisplayName(ConfigManager.ITEMS_SOUL_COMPASS_NAME.getStringFormatted());
+        meta.setCustomModelData(ConfigManager.ITEMS_SOUL_COMPASS_MODEL.getInteger());
+        meta.setLore(ConfigManager.ITEMS_SOUL_COMPASS_LORE.getFormattedStringList()
                 .stream()
-                .map(line -> ColorUtils.colorize(line
-                                .replace("{x}", String.valueOf(deathLocation.getBlockX()))
-                                .replace("{y}", String.valueOf(deathLocation.getBlockY()))
-                                .replace("{z}", String.valueOf(deathLocation.getBlockZ()))
-                        )
+                .map(line -> line
+                        .replace("{x}", String.valueOf(deathLocation.getBlockX()))
+                        .replace("{y}", String.valueOf(deathLocation.getBlockY()))
+                        .replace("{z}", String.valueOf(deathLocation.getBlockZ()))
                 )
                 .collect(Collectors.toList())
         );
