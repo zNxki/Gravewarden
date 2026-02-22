@@ -44,7 +44,7 @@ public class GraveInteractListener implements Listener {
             return;
 
         if (!grave.getPlayer().getUniqueId().equals(player.getUniqueId())) {
-            player.sendMessage(ColorUtils.colorize(Gravewarden.getInstance().getConfig().getString("not-your-grave").replace("{player}", grave.getPlayer().getName())));
+            player.sendMessage(ConfigManager.MESSAGES_NOT_YOUR_GRAVE.getStringFormatted().replace("{player}", grave.getPlayer().getName()));
             return;
         }
 
