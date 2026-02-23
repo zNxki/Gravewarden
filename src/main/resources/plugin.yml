@@ -10,25 +10,25 @@ commands:
     aliases: [ grave ]
 
 permissions:
-  grave.*:
+  gravewarden.*:
     children:
-      - grave.admin
-      - grave.list
-      - grave.list.others
-      - grave.remove
-      - grave.remove.all
-      - grave.teleport
+      - gravewarden.admin
+      - gravewarden.list
+      - gravewarden.list.others
+      - gravewarden.remove
+      - gravewarden.remove.all
+      - gravewarden.teleport
 
-  grave.admin: { }
+  gravewarden.admin: { }
 
-  grave.teleport: { }
+  gravewarden.teleport: { }
 
-  grave.remove: { }
-  grave.remove.all:
+  gravewarden.remove: { }
+  gravewarden.remove.all:
     children:
       - grave.remove
 
-  grave.list: { }
-  grave.list.others:
+  gravewarden.list: { }
+  gravewarden.list.others:
     children:
       - grave.list

@@ -71,9 +71,9 @@ items:
         - "&8&oWill be consumed upon retrieval."
 
 hologram:
-  offset-y: 1.2
+  offset-y: 0.8
   line-spacing: 0.25
   lines:
-    - "&c&l☠ &c%player%"
+    - "&c&l☠ &c{player}"
     - "&7Death Time: &f{time}"
     - "&eClick to open"

@@ -14,6 +14,7 @@ import org.bukkit.inventory.meta.SkullMeta;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
@@ -78,6 +79,7 @@ public class GraveListGui {
                                     .replace("{x}", String.valueOf(grave.getLocation().getBlockX()))
                                     .replace("{y}", String.valueOf(grave.getLocation().getBlockY()))
                                     .replace("{z}", String.valueOf(grave.getLocation().getBlockZ()))
+                                    .replace("{time}", grave.getDeathTime().format(DateTimeFormatter.ofPattern("HH:mm")))
                             )
                             .collect(Collectors.toList())
                     )

@@ -8,7 +8,6 @@ import dev.znxki.gravewarden.objects.Grave;
 import dev.znxki.gravewarden.storage.LocalStorage;
 import dev.znxki.gravewarden.utils.ColorUtils;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

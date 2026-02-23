@@ -6,6 +6,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.time.LocalTime;
 import java.util.List;
 
 @AllArgsConstructor
@@ -14,6 +15,7 @@ public class Grave {
     private final String graveId;
     private final Player player;
     private final Location location;
+    private final LocalTime deathTime;
     private final int experience;
     private final List<ItemStack> items;
 }

@@ -58,7 +58,7 @@ public class DeathListener implements Listener {
         );
 
         HologramUtils.createHologram(
-                deathLocation.clone().add(0, 0, 0),
+                deathLocation.clone().add(0.5, 0, 0.5),
                 event.getEntity(),
                 LocalTime.now().withNano(0),
                 uniqueGraveId
