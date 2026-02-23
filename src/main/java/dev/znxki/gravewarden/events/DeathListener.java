@@ -48,7 +48,7 @@ public class DeathListener implements Listener {
             skull.update();
         }
 
-        Grave grave = new Grave(uniqueGraveId, event.getEntity(), deathLocation, totalExperience, items);
+        Grave grave = new Grave(uniqueGraveId, event.getEntity(), deathLocation, LocalTime.now().withNano(0), totalExperience, items);
         GraveManager.addGrave(event.getEntity().getUniqueId(), grave);
 
         event.getEntity().sendMessage(ConfigManager.MESSAGES_DEATH.getStringFormatted()
