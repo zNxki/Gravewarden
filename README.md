@@ -1,34 +1,50 @@
 # 🪦 GraveWarden
-**Seamless item protection. Secure, lightweight, essential.**
+**Modern item protection. Secure, intuitive, and feature-rich.**
 
-GraveWarden is a modern, zero-command death management solution for Paper/Spigot servers. It focuses on a "plug-and-play" experience, protecting your items through an advanced soul-retrieval system without bloating your server with unnecessary commands or dependencies.
+GraveWarden is a lightweight yet powerful death management solution for Paper/Spigot servers. While it maintains a "plug-and-play" soul, the latest updates introduce advanced management tools for players and admins, ensuring that no item is ever lost to the void.
 
 ---
 
 ## ✨ Key Features
 
-* **📦 Smart Slot Restoration:** GraveWarden remembers your exact inventory layout. It restores items precisely where they were (Hotbar, Armor slots, and Off-hand) upon retrieval.
-* **🛡️ Overflow Protection:** If your inventory is full when opening a grave, excess items are safely dropped at your feet. Zero item loss guaranteed.
-* **👻 Standalone Holograms:** Aesthetic player-head graves with floating text. No external APIs (like DecentHolograms) required—it works perfectly out of the box.
-* **🌌 Soul Particle Effects:** A striking visual "Soul" burst triggers when you reclaim your items, providing high-quality feedback.
-* **🚀 Native 1.20.6+ Support:** Fully optimized using modern Data Components and Persistent Data Containers (PDC) for maximum stability on the latest Minecraft versions.
+* **📦 Precise Inventory Restoration:** Remembers your exact layout. Restores items to their original slots (Hotbar, Armor, Off-hand) instantly.
+* **🖥️ Interactive Grave GUI:** Use `/grave list` to open a visual menu of all your active graves. View coordinates, death time, and world info at a glance.
+* **🛡️ Overflow & Protection:** If your inventory is full, excess items drop safely at your feet. Includes built-in protection against lava and void deaths.
+* **👻 Native Holograms:** Beautiful player-head graves with floating text. **No external dependencies** (like DecentHolograms) required.
+* **🌌 Soul Effects:** Immersive particle bursts and sound effects upon grave retrieval for a premium feel.
+* **🛠️ Admin Toolbox:** Full control with commands to list, teleport to, or purge graves for any player or the entire server.
 
 ---
 
 ## 🛠️ Technical Requirements
 
-* **Server Version:** Paper/Spigot 1.20.6 - 1.21.x
+* **Server Version:** Paper/Spigot 1.20.6 - 1.21.x (Optimized for 1.21.1)
 * **Java:** 21 or higher
-* **Dependencies:** None. Just drop the JAR and play.
+* **Dependencies:** **None.** Everything is built-in.
 
 ---
 
 ## 📖 How it Works
 
-1. **Death:** A grave is automatically created at your death location with your player head.
-2. **Hologram:** A floating display shows the owner's name and the time of death.
-3. **Recovery:** Simply **Right-Click** your grave. Your items will fly back into their original slots instantly.
-4. **Cleanup:** Once the items are retrieved, the grave and the hologram vanish automatically.
+1. **Death:** A grave is generated at your death location using your player's skin.
+2. **Management:** Open the **Grave List GUI** to track your deaths or find your way back.
+3. **Recovery:** **Right-Click** your grave. Items fly back to their original slots, and a "Soul Burst" effect triggers.
+4. **Admin Control:** Admins can manage the afterlife using the comprehensive `/grave` command suite.
+
+---
+
+## ⌨️ Commands & Permissions
+
+| Command | Description | Permission |
+| :--- | :--- | :--- |
+| `/grave list` | Opens your active graves GUI | `grave.list` |
+| `/grave list <player>` | Opens another player's graves GUI | `grave.list.others` |
+| `/grave remove <player>` | Purges all graves for a specific player | `grave.remove` |
+| `/grave remove-all` | Global wipe of all server graves | `grave.remove.all` |
+| `/grave help` | Displays the help menu | *None* |
+
+> **[TIP]**
+> Use `grave.*` for full access to all features and to receive update notifications.
 
 ---
 
