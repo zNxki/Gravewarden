@@ -37,6 +37,7 @@ public final class Gravewarden extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new RespawnListener(), this);
         Bukkit.getPluginManager().registerEvents(new DropCompassListener(), this);
         Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
+        Bukkit.getPluginManager().registerEvents(new GraveProtectionListener(), this);
 
         if (getConfig().getBoolean("update-checker", true))
             updateChecker.check();

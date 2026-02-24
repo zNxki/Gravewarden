@@ -28,6 +28,11 @@ public enum ConfigManager {
     MESSAGES_NO_PERMS("messages.no-perms", "&cYou don't have permission to do that."),
     MESSAGES_WRONG_CMD_USAGE("messages.wrong-command-usage", "&cThat's not quite right. Try /grave help."),
 
+    // ActionBar
+    ACTIONBAR_TRACKER_ENABLED("actionbar.tracker.enabled", true),
+    ACTIONBAR_TRACKER_DISTANCE("actionbar.tracker.messages.distance", "&8[&b☠&8] &fBetween you and grave left: &b{blocks}m"),
+    ACTIONBAR_TRACKER_ARRIVED("actionbar.tracker.messages.you-arrived", "&a&l✔ &2You have arrived at your grave! &a&l✔"),
+
     // GUI
     GUI_TITLE("gui.title", "&8» &cActive Graves"),
 

@@ -4,9 +4,9 @@ import dev.znxki.gravewarden.Gravewarden;
 import dev.znxki.gravewarden.config.ConfigManager;
 import dev.znxki.gravewarden.manager.GraveManager;
 import dev.znxki.gravewarden.objects.Grave;
-import dev.znxki.gravewarden.utils.ColorUtils;
 import dev.znxki.gravewarden.utils.ExperienceUtil;
 import dev.znxki.gravewarden.utils.HologramUtils;
+import dev.znxki.gravewarden.utils.LocationUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -22,12 +22,11 @@ import org.jetbrains.annotations.NotNull;
 import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 public class DeathListener implements Listener {
     @EventHandler
     public void onPlayerDeath(@NotNull PlayerDeathEvent event) {
-        Location deathLocation = event.getEntity().getLocation();
+        Location deathLocation = LocationUtils.getSafeLocation(event.getEntity().getLocation());
 
         ItemStack[] contents = event.getEntity().getInventory().getContents();
         List<ItemStack> items = Arrays.asList(contents.clone());
